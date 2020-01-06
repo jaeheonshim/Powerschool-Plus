@@ -1,11 +1,12 @@
 {
     "name": "PowerSchool Dark Mode",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "A browser extension to give your PowerSchool student interface a dark look rather than the plain, old, boring white color scheme.",
     "content_scripts": [
       {
         "matches": [
-          "https://powerschool.bcsc.k12.in.us/guardian/*"
+          "https://powerschool.bcsc.k12.in.us/guardian/home.html",
+          "https://powerschool.bcsc.k12.in.us/guardian/scores.html*"
         ],
         "js": ["mainPageEditScript.js", "assignmentPageEditScript.js"]
       }

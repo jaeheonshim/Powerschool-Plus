@@ -1,5 +1,4 @@
 let body = document.getElementsByTagName("body")[0]
-body.style.display = "none";
 
 body.style.backgroundColor = "black";
 body.style.color = "white";
@@ -27,6 +26,7 @@ for(let i = 0; i < headerRows.length; i++) {
     headerRows[i].style.backgroundColor = "#00334a";
     headerRows[i].style.color = "white";
 }
-body.style.display = "block";
+
+document.querySelector("#nav-main").style.color = "#444" //fix sidebar header text
 
 console.log("Dark theme applied");
