@@ -1,16 +1,29 @@
 {
-    "name": "PowerSchool Dark Mode",
-    "version": "0.1.1",
-    "description": "A browser extension to give your PowerSchool student interface a dark look rather than the plain, old, boring white color scheme.",
-    "content_scripts": [
-      {
-        "matches": [
-          "https://powerschool.bcsc.k12.in.us/guardian/home.html",
-          "https://powerschool.bcsc.k12.in.us/guardian/scores.html*"
-        ],
-        "js": ["mainPageEditScript.js", "assignmentPageEditScript.js"]
-      }
-    ],
-    "icons": { "16": "icon-16.png", "128": "icon-128.png"},
-    "manifest_version": 2
-  }
+  "name": "PowerSchool PLUS",
+  "version": "0.2.0",
+  "permissions": [
+    "storage"
+  ],
+  "description": "A browser extension to give your PowerSchool student interface the features you need.\nDeveloped by Jaeheon Shim.",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://powerschool.bcsc.k12.in.us/guardian/home.html",
+        "https://powerschool.bcsc.k12.in.us/guardian/scores.html*"
+      ],
+      "js": ["mainPageEditScript.js", "mainPageProcessor.js"]
+    },
+    {
+      "matches": [
+        "https://powerschool.bcsc.k12.in.us/guardian/scores.html*"
+      ],
+      "js": ["assignmentPageEditScript.js"]
+    }
+  ],
+  "browser_action": {
+    "default_title": "PowerSchool PLUS",
+    "default_popup": "popup.html"
+  },
+  "icons": { "16": "icon-16.png", "128": "icon-128.png"},
+  "manifest_version": 2
+}
