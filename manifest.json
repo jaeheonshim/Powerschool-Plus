@@ -7,7 +7,7 @@
       "js": [ "mainPageEditScript.js", "mainPageProcessor.js" ],
       "matches": [ "https://powerschool.bcsc.k12.in.us/guardian/home.html", "https://powerschool.bcsc.k12.in.us/guardian/scores.html*" ]
    }, {
-      "js": [ "assignmentPageEditScript.js" ],
+      "js": [ "assignmentPageEditScript.js", "gradeEditCalculator.js"],
       "matches": [ "https://powerschool.bcsc.k12.in.us/guardian/scores.html*" ]
    } ],
    "description": "A browser extension to give your PowerSchool student interface the features you need.\n Developed by Jaeheon Shim.",
@@ -18,5 +18,5 @@
    "manifest_version": 2,
    "name": "PowerSchool PLUS",
    "permissions": [ "storage" ],
-   "version": "0.2.1"
+   "version": "0.3.0"
 }
