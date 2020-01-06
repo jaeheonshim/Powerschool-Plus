@@ -46,7 +46,8 @@ chrome.storage.local.get(["psGPACalc"], function(items){
                 let gradeText = classHtmlObject.cells[j].querySelector("a").innerHTML;
                 gradeText = gradeText.replace(/[^\d.]/g, '');
                 let currentColumnClass = new ClassData(parseFloat(gradeText));
-                gradingPeriods[j - 12].addClass(currentColumnClass);
+                if(!isNaN(currentColumnClass.grade)) 
+                    gradingPeriods[j - 12].addClass(currentColumnClass);
             }
         }
         
@@ -78,12 +79,23 @@ chrome.storage.local.get(["psGPACalc"], function(items){
         let newRow = gradesTable.insertRow(3);
         newRow.classList.add("center");
         newRow.classList.add("th2");
+
+        let GPAAverage = 0;
+        let GPAAverageCalcCounter = 0;
+        for(let i = 0; i < gradingPeriods.length; i++) {
+            if(!isNaN(gradingPeriods[i].gpa)) {
+                GPAAverage += gradingPeriods[i].gpa;
+                GPAAverageCalcCounter++;
+            }
+        }
+
+        GPAAverage = Math.round((GPAAverage /= GPAAverageCalcCounter) * 100) / 100;
         
         for(let i = 0; i < 11; i++) {
             newRow.insertCell(0).outerHTML = "<th></th>";
         }
         
-        newRow.insertCell(11).outerHTML = "<th>Unweighted GPA (4pt scale):</th>";
+        newRow.insertCell(11).outerHTML = "<th>Unweighted GPA (Average: " + GPAAverage + "):</th>";
         
         for(let i = 0; i < gradingPeriods.length; i++) {
             let newCell = newRow.insertCell(i + 12);
